@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DeveloperContext } from '../Home/Home';
 
 const Cart = ({ cart, removeFromCart }) => {
+
+    const developerName = useContext(DeveloperContext);
+
     // 1. Element Variable
     // 2. Ternary operator
     let command;
@@ -35,6 +39,10 @@ const Cart = ({ cart, removeFromCart }) => {
 
             {/* 4. Using OR operator. When the condition will false it will go to the portion after || */}
             {cart.length < 5 || <div>50% Discount for you</div>}
+
+            <p className='p-4 m-4 shadow-2xl rounded-full text-xl'>
+                Developer: <span className='text-red-400 underline-offset-8'>{developerName}</span>
+            </p>
 
         </div>
     );
